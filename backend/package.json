@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/app.js",
+  "type": "module",
+  "scripts": {
+    "swc": "swc src -d build -D src/assets --strip-leading-paths",
+    "build": "rm -rf build && npm run swc",
+    "start": "node build/app.js",
+    "nodemon": "nodemon --exec \"npm run build && npm run start\"",
+    "dev": "concurrently -n dev,ts \"npm:nodemon\" \"tsc --watch\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@swc/cli": "^0.7.3",
+    "@swc/core": "^1.4.13",
+    "@types/node": "^22.15.2",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.4"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/mongodb": "^9.0.2",
+    "dotenv": "^17.2.1",
+    "fastify": "^5.5.0"
+  }
+}

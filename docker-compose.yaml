@@ -1,0 +1,23 @@
+name: rndlabz-hw
+
+services:
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost:3001
+    ports:
+      - '3000:80'
+
+  backend:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      - MONGO_URI=mongodb://db:27017/rndlabz-hw
+    ports:
+      - '3001:3001'
+
+  db:
+    image: mongo
