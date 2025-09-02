@@ -13,7 +13,7 @@
 
 #### Frontend
 
-`.env` file needs:
+`.env` file:
 
 - `PUBLIC_API_URL` - setup for `http://localhost:3001`. **Mandatory!**
 
