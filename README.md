@@ -4,7 +4,18 @@
 
 ### Setup
 
-Add CoinMarketCap API (`CMC_API_KEY`) key in the `backend` dir to a `.env` file.
+#### Backend
+
+`.env` file:
+
+- `CMC_API_KEY` - CoinMarketCap API key. **Mandatory!**
+- `MONGO_URI` - not necessary for running with Docker
+
+#### Frontend
+
+`.env` file needs:
+
+- `PUBLIC_API_URL` - setup for `http://localhost:3001`. **Mandatory!**
 
 ### Command
 
@@ -13,6 +24,7 @@ Run with `docker-compose up`.
 #### Possible conflicts
 
 Apps are configured to utilzie ports `3000` and `3001` on the host machine.
+Locally meant to be run on POSIX-compliant hosts.
 
 ## Backend reasoning
 
@@ -33,3 +45,5 @@ I went with Fastify, because it's the most performant and due to personal profic
 - Implement available coin fetching from the backend
 - Implement tick interval for updating price data on the frontend
 - Add a homepage
+- Code and types sharing via a monorepo solution like npm workspaces
+- Improve .env file management

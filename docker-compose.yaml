@@ -6,7 +6,7 @@ services:
     depends_on:
       - backend
     environment:
-      - VITE_API_URL=http://localhost:3001
+      - PUBLIC_API_URL=http://localhost:3001
     ports:
       - '3000:80'
 
@@ -14,6 +14,8 @@ services:
     build: ./backend
     depends_on:
       - db
+    env_file:
+      - ./backend/.env
     environment:
       - MONGO_URI=mongodb://db:27017/rndlabz-hw
     ports:
